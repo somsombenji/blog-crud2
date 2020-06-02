@@ -1,0 +1,13 @@
+
+{%extends 'base.html'%}
+{%block contents%}
+<section>
+    <div class="detail">
+        <h2>제목: {{blog.title}}</h2>
+        <p class="pub_date">{{blog.pub_date}}</p><br>
+        <p class="content">내용: {{blog.body}}</p>
+     </div><br>
+     홈으로 돌아가기<a href="{%url 'home'%}" type="button" class="btn btn-outline-secondary" id="home">Home</a>
+</section>
+
+{%endblock%}

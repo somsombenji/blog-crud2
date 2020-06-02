@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+{%block contents%}
+<section>
+    <div class="detail">
+        <h2>글 입력</h2>
+        <form method='POST'>
+            {% csrf_token %}
+            <!--<table>
+                {{forms.as_table}}
+            </table>
+            <br> 클래스 라이온 강의 방법-->
+            Title: <input type="text" name="title"><br><br>
+            Body:<br>
+            <textarea name="body" cols="60" rows="12"></textarea><br>
+            <input type="submit" value="제출하기" class="btn btn-outline-secondary">
+        </form>
+     </div><br>
+     홈으로 돌아가기<a href="{%url 'home'%}" type="button" class="btn btn-outline-secondary" id="home">Home</a>
+</section>
+
+{%endblock%}

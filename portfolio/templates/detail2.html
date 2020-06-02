@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+{%block contents%}
+<section>
+    <div class="detail">
+        <h2>제목: {{detail.title}}</h2>
+        {%if detail.photo%}
+        <img src="{{detail.photo.url}}" height="350px"><br>
+        {%endif%}
+        <p class="content">설명: {{detail.body}}</p>
+     </div><br>
+     포트폴리오로 돌아가기  <a href="{%url 'portfolio'%}" type="button" class="btn btn-outline-secondary" id="home">Back</a>
+</section>
+
+{%endblock%}
+
+
+

@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+{%block contents%}
+<section>
+    <div class="detail">
+        <h2>사진 수정하기</h2>
+        <form action="{%url 'update2' update2.id%}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            Title: <input type="text" name="title" value="{{update2.title}}" size="50"><br><br>
+            Image: <input type="file" name="photo"><br><br>
+            Body:<br>
+            <textarea name="body" cols="60" rows="8">{{update2.body}}</textarea><br><br>
+            <input type="submit" value="제출하기">
+        </form>
+     </div><br>
+     홈으로 돌아가기<a href="{%url 'home'%}" type="button" class="btn btn-outline-secondary" id="home">Home</a>
+</section>
+
+{%endblock%}

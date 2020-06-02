@@ -1,0 +1,17 @@
+
+{%extends 'base.html'%} <!--extends는 우선순위가 가장 높다. 따라서 가장 먼저 써줘야함.-->
+{%block contents%}
+        <section>
+            {%for blog in blogs.all%}
+            <div class="post">
+                <h2>제목: {{blog.title}}</h2>
+                <p class="pub_date">{{blog.pub_date}}</p>
+                <p class="content">본문 미리보기: {{blog.summary}}<a href="{%url 'detail' blog.id%}">...more</a></p>
+                <a href="{%url 'delete' blog.id %}" class="btn btn-secondary btn-sm">삭제</a>
+                <a href="{%url 'update' blog.id%}" class="btn btn-secondary btn-sm">수정</a>
+             </div>
+             {%endfor%}
+             <br><br>
+        </section>
+
+{%endblock%}

@@ -1,0 +1,53 @@
+{%extends 'base.html'%}
+{% load static %}
+{%block contents%}
+<section>
+  <h2>&nbsp&nbsp&nbsp Portfolio</h2>
+  <a href="{%url 'create2'%}">사진 올리기</a>
+
+  {%for portfolio in portfolios.all%}
+
+  <div class="card mb-3" style="max-width: 900px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        {%if portfolio.photo%} <!--템플릿 언어로 조건문-->
+        <img src="{{portfolio.photo.url}}" class="card-img" height="180px">
+        {%endif%}<!--닫아주기-->
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title" name="title">{{portfolio.title}}</h5>
+          <p class="card-text" name="body">{{portfolio.body}}</p>
+          <a href="{% url 'detail2' portfolio.id %}" class="btn btn-secondary btn-sm">자세히보기</a> <!--pk는 portfolio.id(위에 반복문에 있는 변수)-->
+          <a href="{%url 'update2' portfolio.id%}" class="btn btn-secondary btn-sm">수정</a>
+          <a href="{%url 'delete2' portfolio.id%}" class="btn btn-secondary btn-sm">삭제</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--<div class="card-deck">
+      <div class="card">
+        <img src="{{portfolio.image.url}}" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{portfolio.title}}</h5>
+          <p class="card-text">{{portfolio.description}}</p>
+        </div>-->
+
+  {%endfor%}
+
+  <div class="card mb-3" style="max-width: 900px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="{%static 'tree.jpg'%}" class="card-img" height="180px">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Static</h5>
+          <p class="card-text">static으로 올린 사진입니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+  {%endblock%}

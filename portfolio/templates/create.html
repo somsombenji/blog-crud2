@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+{%block contents%}
+<section>
+    <div class="detail">
+        <h2>사진 올리기</h2>
+        <form method="POST" action="{%url 'create2'%}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!--enctype은 from에서 유저가 파일을 업로드하기 위한 설정
+            POST로 요청할 때는 요청본문을 구성하는 데이터를 어떤 방식으로든 인코딩(코드화)를 해주어야함
+            위처럼 쓰면 문자뿐아니라 전체파일을 데이터에 포함 시킬 수 있음
+
+            csrf_token은
+            csrf 공격(인터넷 사용자가 자신의 의지와 무관하게 수정,삭제 등록 등을 하게함)을 막는 코드이다.
+            클라이언트에서 해당 페이지를 접속하게되면 장고에서 자동으로 csrf_token을 클라이언트로 보내서
+            쿠키에 저장시키고 POST로 전송시 쿠키에 csrf_token이 함께 전송되어 인증하는 방식
+            token이 사용자 정보를 가지고 있다.-->
+            Title: <input type="text" name="title"><br><br>
+            Image: <input type="file" name="photo"><br><br>
+            Body:<br>
+            <textarea name="body" cols="60" rows="8">{{update2.body}}</textarea><br><br>
+            <input type="submit" class="btn btn-outline-secondary">
+        </form>
+     </div><br>
+     홈으로 돌아가기<a href="{%url 'home'%}" type="button" class="btn btn-outline-secondary" id="home">Home</a>
+</section>
+
+{%endblock%}
+
+
+

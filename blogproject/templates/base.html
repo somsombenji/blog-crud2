@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>blog</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <style>
+           @font-face {
+                        font-family: 'MapoPeacefull';
+                        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoPeacefullA.woff') format('woff');
+                        font-weight: normal;
+                        font-style: normal;
+                        }
+            body {
+                background-color: rgba(228,247,186,0.7);
+                font-family: "MapoPeacefull";
+            }
+            .header {
+                width:99%;
+                height: 100px;
+                border-bottom: 11px solid #FFE08C;
+                border-top: 11px solid #FFE08C;
+                font-size: 50px;
+                font-weight: bold;
+                margin-top: 10px;
+                margin-left: 7px;
+                padding-left: 10px;
+            }
+            nav {
+                width: 20%;
+                height: 500px;
+                border: 5px solid #35B62C;
+                float: left;
+                margin-top: 10px;
+                margin-left: 10px;
+                background-color: rgba(246,246,246,0.5);
+                padding: 10px;
+                border-radius: 10px;
+            }
+            
+            section {
+                width: 79%;
+                height: 500px;
+                float: right;
+            }
+            
+            .post {
+                width: 99%;
+                height:230px;
+                border: 2px solid gray;
+                border-radius: 10px;
+                margin-top: 10px;
+                background-color: rgba(255,242,230,0.5);
+                padding: 15px;
+                
+                
+            }
+            .post:hover {
+                opacity: 0.7;
+                background-color: #E6FFFF;
+            }
+
+            .edit {
+                position: relative;
+                left: 150px;
+                top: 230px;
+            }
+            
+            .pub_date {
+                font-size: 15px;
+                color: gray;
+            }
+            .content {
+                font-size: 20px;
+            }
+            .card-deck {
+                width: 300px;
+                height: 350px;
+                padding-top: 20px;
+            }
+            .detail {
+                width: 99%;
+                height:500px;
+                border: 2px solid gray;
+                border-radius: 10px;
+                margin-top: 10px;
+                background-color: rgba(246,246,246,0.5);
+                padding: 15px;
+                overflow:auto;
+            }
+            .portfolio {
+                width: 99%;
+                height:500px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!--템플릿 상속
+1.프로젝트 폴더에 templates 만들고 그 안에 base.html 만들기
+2. base.html에 중복되는 내용 넣기
+3. settings.py에서 base.html의 위치를 알리기
+-->
+        <a href="{%url 'home'%}"><div class="header">
+            My Blog
+        </div></a>
+        <nav>
+            <h3>블로그 소개</h3><br>
+            안녕하세요 이것저것 쓰는 블로그입니다.
+            <br><br>
+            <p>제 포트폴리오로 가려면</p>
+            <a href="{%url 'portfolio'%}" type="button" class="btn btn-outline-secondary">Portfolio</a>
+            <div class="edit">
+                 <svg class="bi bi-pencil-square" width="2em" height="2em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.502 1.94a.5.5 0 010 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 01.707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 00-.121.196l-.805 2.414a.25.25 0 00.316.316l2.414-.805a.5.5 0 00.196-.12l6.813-6.814z"/>
+                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 002.5 15h11a1.5 1.5 0 001.5-1.5v-6a.5.5 0 00-1 0v6a.5.5 0 01-.5.5h-11a.5.5 0 01-.5-.5v-11a.5.5 0 01.5-.5H9a.5.5 0 000-1H2.5A1.5 1.5 0 001 2.5v11z" clip-rule="evenodd"/>
+              </svg>
+              <a href="{%url 'create'%}" type="button" class="btn btn-outline-secondary">글쓰기</a>
+            </div>
+        </nav>
+{% block contents %}
+
+{%endblock%}
+    </body>
+</html>
