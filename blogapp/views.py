@@ -3,8 +3,6 @@ from django.utils import timezone
 from .models import Blog
 from .forms import NewBlog #이거 두개 임포트 해주는거 잊지말자
 
-def index(request):
-    return render(request, 'index.html')
 
 def home(request):
     blogs = Blog.objects
