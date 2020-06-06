@@ -44,6 +44,6 @@ def update(request, blog_id):
         return redirect('/blog/'+str(blog_id))
 
     else: #수정사항을 입력하려고 페이지에 접속하면
-        return render(request, 'new.html', {'forms':forms})
+        return render(request, 'update.html', {'forms':forms})
 
 

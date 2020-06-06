@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+{%block contents%}
+<section>
+    <div class="detail">
+        <h2>사진 올리기</h2>
+        <form method="POST" action="{%url 'update' forms.id%}" enctype="multipart/form-data">
+            {% csrf_token %}
+            Title: <input type="text" name="title" value="{{forms.title}}"><br><br>
+            Body:<br>
+            <textarea name="body" cols="60" rows="12">{{forms.body}}</textarea><br>
+            <input type="submit" class="btn btn-outline-secondary" value="올리기">
+        </form>
+     </div><br>
+     홈으로 돌아가기<a href="{%url 'home'%}" type="button" class="btn btn-outline-secondary" id="home">Home</a>
+</section>
+
+{%endblock%}
